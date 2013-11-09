@@ -2,7 +2,11 @@
 My vim setup
 ============================================================
 
-My vim IDE setup for python, html, css, javascript, gettext and more
+My vim IDE setup for python, html, css, javascript, gettext and more.
+
+Forked from Meir Kriheli's dotvim_.
+
+.. _dotvim: https://github.com/MeirKriheli/dotvim
 
 Features
 ============
@@ -34,7 +38,7 @@ Usage
 The following commands will clone the repo, symlink `~/.vimrc` and update the
 bundles::
 
-    git clone https://github.com/MeirKriheli/dotvim.git ~/.vim
+    git clone https://github.com/Tudmotu/dotvim.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
     git submodule init
