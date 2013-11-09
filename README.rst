@@ -26,6 +26,7 @@ Features
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
 * Syntax extension for JavaScript libraries
+* Javascript code analysis using Tern
 
 Usage
 ============
@@ -78,6 +79,7 @@ Plugins
 * tabular_ - text filtering and alignment
 * javascript-libraries-syntax_ - A syntax extension for common javascript
   libraries
+* tern_for_vim_ - Neat code-analyzer with autocomplete and definition finder
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -106,6 +108,7 @@ Plugins
 .. _vim-powerline: https://github.com/Lokaltog/vim-powerline
 .. _tabular: https://github.com/godlygeek/tabular
 .. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
+.. _tern_for_vim: https://github.com/marijnh/tern_for_vim
 
 Shortcuts and re-Mappings
 ============================
@@ -152,4 +155,6 @@ Key                     Command
 ``g*``                  :Ack -w current_word
 ----------------------  -----------------------------------------------------------------
 ``ga``                  :AckAdd! (add results to the current search)
+----------------------  -----------------------------------------------------------------
+``<CTRL-i>``            Invokes :TernDef in insert and command modes
 ======================  =================================================================
