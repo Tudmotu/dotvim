@@ -25,6 +25,7 @@ Features
 * Task list
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
+* Syntax extension for JavaScript libraries
 
 Usage
 ============
@@ -75,6 +76,8 @@ Plugins
 * MatchIt_ - Extended % matching for HTML, LaTeX, and many other languages
 * vim-powerline_ - The ultimate vim statusline utility
 * tabular_ - text filtering and alignment
+* javascript-libraries-syntax_ - A syntax extension for common javascript
+  libraries
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -102,6 +105,7 @@ Plugins
 .. _SuperTab: https://github.com/ervandew/supertab
 .. _vim-powerline: https://github.com/Lokaltog/vim-powerline
 .. _tabular: https://github.com/godlygeek/tabular
+.. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
 
 Shortcuts and re-Mappings
 ============================
