@@ -97,3 +97,9 @@
 [submodule "bundle/vim-angular-template"]
 	path = bundle/vim-angular-template
 	url = https://github.com/curist/vim-angular-template
+[submodule "bundle/vim-misc"]
+	path = bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "bundle/vim-session"]
+	path = bundle/vim-session
+	url = https://github.com/xolox/vim-session.git

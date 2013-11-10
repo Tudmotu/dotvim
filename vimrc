@@ -314,3 +314,10 @@ nmap ga :AckAdd!<space>
 
 imap <C-i> <Esc>:TernDef<Return>
 nmap <C-i> :TernDef<Return>
+
+
+" ==================================================
+" Vim Session
+" ==================================================
+
+let g:session_autosave = "yes"
