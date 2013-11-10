@@ -94,3 +94,6 @@
 [submodule "bundle/tern_for_vim"]
 	path = bundle/tern_for_vim
 	url = git@github.com:marijnh/tern_for_vim.git
+[submodule "bundle/vim-angular-template"]
+	path = bundle/vim-angular-template
+	url = https://github.com/curist/vim-angular-template
