@@ -292,7 +292,7 @@ let g:SuperTabDefaultCompletionType = "context"
 " CtrlP
 " ==================================================
 
-set wildignore+=*.so,*.swp,*.zip,*.pyc,*.pyo
+set wildignore+=*.so,*.swp,*.zip,*.pyc,*.pyo,*/target/*
 
 " Allow overrides via ~/.vim/vimrc.local
 if filereadable(expand("~/.vim/vimrc.local"))
