@@ -29,8 +29,9 @@ Features
 * Task list
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
-* Syntax extension for JavaScript libraries
-* Javascript code analysis using Tern
+* Syntax extensions for JavaScript libraries
+* Javascript smart autocomplete using Tern
+* Session management
 
 Usage
 ============
@@ -84,6 +85,8 @@ Plugins
 * javascript-libraries-syntax_ - A syntax extension for common javascript
   libraries
 * tern_for_vim_ - Neat code-analyzer with autocomplete and definition finder
+* vim-angular-template_ - Syntax for angular templates
+* vim-session_ - Session manager for vim
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -113,6 +116,8 @@ Plugins
 .. _tabular: https://github.com/godlygeek/tabular
 .. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
 .. _tern_for_vim: https://github.com/marijnh/tern_for_vim
+.. _vim-angular-template: https://github.com/curist/vim-angular-template
+.. _vim-session: https://github.com/xolox/vim-session
 
 Shortcuts and re-Mappings
 ============================
