@@ -87,6 +87,7 @@ Plugins
 * tern_for_vim_ - Neat code-analyzer with autocomplete and definition finder
 * vim-angular-template_ - Syntax for angular templates
 * vim-session_ - Session manager for vim
+* nerdcommenter_ - Utility for fast commenting of code
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -118,6 +119,7 @@ Plugins
 .. _tern_for_vim: https://github.com/marijnh/tern_for_vim
 .. _vim-angular-template: https://github.com/curist/vim-angular-template
 .. _vim-session: https://github.com/xolox/vim-session
+.. _nerdcommenter: https://github.com/scrooloose/nerdcommenter
 
 Shortcuts and re-Mappings
 ============================
