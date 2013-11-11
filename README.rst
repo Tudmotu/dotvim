@@ -2,7 +2,11 @@
 My vim setup
 ============================================================
 
-My vim IDE setup for python, html, css, javascript, gettext and more
+My vim IDE setup for python, html, css, javascript, gettext and more.
+
+Forked from Meir Kriheli's dotvim_.
+
+.. _dotvim: https://github.com/MeirKriheli/dotvim
 
 Features
 ============
@@ -25,6 +29,9 @@ Features
 * Task list
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
+* Syntax extensions for JavaScript libraries
+* Javascript smart autocomplete using Tern
+* Session management
 
 Usage
 ============
@@ -32,7 +39,7 @@ Usage
 The following commands will clone the repo, symlink `~/.vimrc` and update the
 bundles::
 
-    git clone https://github.com/MeirKriheli/dotvim.git ~/.vim
+    git clone https://github.com/Tudmotu/dotvim.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
     git submodule init
@@ -75,6 +82,11 @@ Plugins
 * MatchIt_ - Extended % matching for HTML, LaTeX, and many other languages
 * vim-powerline_ - The ultimate vim statusline utility
 * tabular_ - text filtering and alignment
+* javascript-libraries-syntax_ - A syntax extension for common javascript
+  libraries
+* tern_for_vim_ - Neat code-analyzer with autocomplete and definition finder
+* vim-angular-template_ - Syntax for angular templates
+* vim-session_ - Session manager for vim
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -102,6 +114,10 @@ Plugins
 .. _SuperTab: https://github.com/ervandew/supertab
 .. _vim-powerline: https://github.com/Lokaltog/vim-powerline
 .. _tabular: https://github.com/godlygeek/tabular
+.. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
+.. _tern_for_vim: https://github.com/marijnh/tern_for_vim
+.. _vim-angular-template: https://github.com/curist/vim-angular-template
+.. _vim-session: https://github.com/xolox/vim-session
 
 Shortcuts and re-Mappings
 ============================
@@ -148,4 +164,6 @@ Key                     Command
 ``g*``                  :Ack -w current_word
 ----------------------  -----------------------------------------------------------------
 ``ga``                  :AckAdd! (add results to the current search)
+----------------------  -----------------------------------------------------------------
+``<CTRL-i>``            Invokes :TernDef in insert and command modes
 ======================  =================================================================
