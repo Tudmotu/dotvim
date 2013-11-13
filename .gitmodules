@@ -112,3 +112,6 @@
 [submodule "bundle/javacomplete"]
 	path = bundle/javacomplete
 	url = https://github.com/vim-scripts/javacomplete.git
+[submodule "bundle/vim-velocity"]
+	path = bundle/vim-velocity
+	url = https://github.com/lepture/vim-velocity.git
