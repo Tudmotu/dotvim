@@ -325,3 +325,4 @@ nmap <C-i> :TernDef<Return>
 " ==================================================
 
 let g:session_autosave = "yes"
+let g:session_default_to_last = 1
