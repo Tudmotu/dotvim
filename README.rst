@@ -18,7 +18,8 @@ Features
 * Tabs expand to 4 spaces by default
 * Remap ```<Leader>`` to ``,`` and ``jj` to ``<ESC>``
 * Highlight current row and color column 80
-* Extra syntax highlighting (css3, less, json, jinja, jquery etc)
+* Extra syntax highlighting (css3, less, json, jinja, jquery, velocity
+  templates, angular templates, etc)
 * Syntax checking
 * Snippets
 * Python completion, refactoring, navigation and docs
@@ -88,6 +89,7 @@ Plugins
 * vim-angular-template_ - Syntax for angular templates
 * vim-session_ - Session manager for vim
 * nerdcommenter_ - Utility for fast commenting of code
+* vim-velocity_ - Syntax highlighting for velocity templates
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -120,6 +122,7 @@ Plugins
 .. _vim-angular-template: https://github.com/curist/vim-angular-template
 .. _vim-session: https://github.com/xolox/vim-session
 .. _nerdcommenter: https://github.com/scrooloose/nerdcommenter
+.. _vim-velocity: https://github.com/lepture/vim-velocity
 
 Shortcuts and re-Mappings
 ============================
