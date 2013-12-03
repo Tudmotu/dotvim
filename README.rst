@@ -91,6 +91,7 @@ Plugins
 * nerdcommenter_ - Utility for fast commenting of code
 * vim-velocity_ - Syntax highlighting for velocity templates
 * MatchTag_ - Highlight the closing tag of the element cursor is currently on
+* HTML-AutoCloseTag_ - Automatically close HTML tags while typing
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -125,6 +126,7 @@ Plugins
 .. _nerdcommenter: https://github.com/scrooloose/nerdcommenter
 .. _vim-velocity: https://github.com/lepture/vim-velocity
 .. _MatchTag: https://github.com/gregsexton/MatchTag
+.. _HTML-AutoCloseTag: https://github.com/vim-scripts/HTML-AutoCloseTag
 
 Shortcuts and re-Mappings
 ============================
