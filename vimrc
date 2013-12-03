@@ -248,12 +248,12 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " velocity 
 au! BufRead,BufNewFile *.vm set filetype=velocity
 
-autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype xhtml setlocal ts=2 sw=2 expandtab
-autocmd Filetype xml setlocal ts=2 sw=2 expandtab
-autocmd Filetype css setlocal ts=2 sw=2 expandtab
-autocmd Filetype less setlocal ts=2 sw=2 expandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype html setlocal ts=4 sw=4 expandtab
+autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
+autocmd Filetype xml setlocal ts=4 sw=4 expandtab
+autocmd Filetype css setlocal ts=4 sw=4 expandtab
+autocmd Filetype less setlocal ts=4 sw=4 expandtab
+autocmd Filetype ruby setlocal ts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 
 " snipMate
