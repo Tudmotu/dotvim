@@ -115,3 +115,6 @@
 [submodule "bundle/vim-velocity"]
 	path = bundle/vim-velocity
 	url = https://github.com/lepture/vim-velocity.git
+[submodule "bundle/MatchTag"]
+	path = bundle/MatchTag
+	url = https://github.com/gregsexton/MatchTag.git

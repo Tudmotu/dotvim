@@ -90,6 +90,7 @@ Plugins
 * vim-session_ - Session manager for vim
 * nerdcommenter_ - Utility for fast commenting of code
 * vim-velocity_ - Syntax highlighting for velocity templates
+* MatchTag_ - Highlight the closing tag of the element cursor is currently on
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -123,6 +124,7 @@ Plugins
 .. _vim-session: https://github.com/xolox/vim-session
 .. _nerdcommenter: https://github.com/scrooloose/nerdcommenter
 .. _vim-velocity: https://github.com/lepture/vim-velocity
+.. _MatchTag: https://github.com/gregsexton/MatchTag
 
 Shortcuts and re-Mappings
 ============================
