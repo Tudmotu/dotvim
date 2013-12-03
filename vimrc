@@ -326,3 +326,21 @@ nmap <C-i> :TernDef<Return>
 
 let g:session_autosave = "yes"
 let g:session_default_to_last = 1
+
+" ==================================================
+" Tab Key Mappings
+" ==================================================
+
+imap <TAB> <C-t>
+imap <S-TAB> <C-d>
+nmap <TAB> >>
+nmap <S-TAB> <<
+vmap <TAB> >
+vmap <S-TAB> <
+
+" ==================================================
+" Home Key Mappings
+" ==================================================
+
+imap <HOME> <Esc>^i
+nmap <HOME> ^
