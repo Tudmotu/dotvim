@@ -176,9 +176,9 @@ Key                     Command
 ----------------------  -----------------------------------------------------------------
 ``<CTRL-i>``            Invokes :TernDef in insert and command modes
 ----------------------  -----------------------------------------------------------------
-``<TAB>``               Indent line in visual, normal, and insert modes
+``<TAB>``               Indent line in visual and normal modes
 ----------------------  -----------------------------------------------------------------
-``<S-TAB>``             Unindent line in visual, normal, and insert modes
+``<S-TAB>``             Unindent line in visual and normal modes
 ----------------------  -----------------------------------------------------------------
 ``<HOME>``              'Soft-Home' (first non-white-space character)
 ======================  =================================================================
