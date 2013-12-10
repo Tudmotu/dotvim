@@ -248,6 +248,9 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " velocity 
 au! BufRead,BufNewFile *.vm set filetype=velocity
 
+" mustache 
+au! BufRead,BufNewFile *.mustache set filetype=html
+
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
 autocmd Filetype xml setlocal ts=4 sw=4 expandtab
