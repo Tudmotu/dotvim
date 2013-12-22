@@ -333,3 +333,9 @@ vmap <S-TAB> <
 
 imap <HOME> <Esc>^i
 nmap <HOME> ^
+
+" ==================================================
+" vim-airline
+" ==================================================
+
+let g:airline_powerline_fonts = 1

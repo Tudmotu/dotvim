@@ -77,7 +77,7 @@ Plugins
 * po.vim_ - Easier editing of GNU gettext PO files
 * json.vim_ - A syntax highlighting file for JSON
 * MatchIt_ - Extended % matching for HTML, LaTeX, and many other languages
-* vim-powerline_ - The ultimate vim statusline utility
+* vim-airline_ - The ultimate vim statusline utility
 * tabular_ - text filtering and alignment
 * javascript-libraries-syntax_ - A syntax extension for common javascript
   libraries
@@ -110,7 +110,7 @@ Plugins
 .. _json.vim: https://github.com/argent-smith/JSON.vim
 .. _MatchIt: http://www.vim.org/scripts/script.php?script_id=39
 .. _SuperTab: https://github.com/ervandew/supertab
-.. _vim-powerline: https://github.com/Lokaltog/vim-powerline
+.. _vim-airline: https://github.com/bling/vim-airline
 .. _tabular: https://github.com/godlygeek/tabular
 .. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
 .. _vim-angular-template: https://github.com/curist/vim-angular-template
