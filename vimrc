@@ -318,22 +318,6 @@ nmap g/ :Ack<space>
 nmap g* :Ack -w <C-R><C-W><space>
 nmap ga :AckAdd!<space>
 
-
-" ==================================================
-" Tern JavaScript Analyzer
-" ==================================================
-
-imap <C-i> <Esc>:TernDef<Return>
-nmap <C-i> :TernDef<Return>
-
-
-" ==================================================
-" Vim Session
-" ==================================================
-
-let g:session_autosave = "yes"
-let g:session_default_to_last = 1
-
 " ==================================================
 " Tab Key Mappings
 " ==================================================

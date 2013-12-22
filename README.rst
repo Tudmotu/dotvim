@@ -27,12 +27,9 @@ Features
 * Extended pair matching with %
 * ASCII drawing
 * Fuzzy file, buffer, mru, tag, etc finder
-* Task list
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
 * Syntax extensions for JavaScript libraries
-* Javascript smart autocomplete using Tern
-* Session management
 
 Usage
 ============
@@ -79,15 +76,12 @@ Plugins
 * auto-pairs_ - Insert or delete brackets, parens, quotes in pair
 * po.vim_ - Easier editing of GNU gettext PO files
 * json.vim_ - A syntax highlighting file for JSON
-* TaskList_ - Eclipse like task list
 * MatchIt_ - Extended % matching for HTML, LaTeX, and many other languages
 * vim-powerline_ - The ultimate vim statusline utility
 * tabular_ - text filtering and alignment
 * javascript-libraries-syntax_ - A syntax extension for common javascript
   libraries
-* tern_for_vim_ - Neat code-analyzer with autocomplete and definition finder
 * vim-angular-template_ - Syntax for angular templates
-* vim-session_ - Session manager for vim
 * nerdcommenter_ - Utility for fast commenting of code
 * vim-velocity_ - Syntax highlighting for velocity templates
 * MatchTag_ - Highlight the closing tag of the element cursor is currently on
@@ -114,15 +108,12 @@ Plugins
 .. _auto-pairs: https://github.com/jiangmiao/auto-pairs
 .. _po.vim: http://vim.sourceforge.net/scripts/script.php?script_id=695
 .. _json.vim: https://github.com/argent-smith/JSON.vim
-.. _TaskList: http://juan.axisym3.net/vim-plugins/#tasklist
 .. _MatchIt: http://www.vim.org/scripts/script.php?script_id=39
 .. _SuperTab: https://github.com/ervandew/supertab
 .. _vim-powerline: https://github.com/Lokaltog/vim-powerline
 .. _tabular: https://github.com/godlygeek/tabular
 .. _javascript-libraries-syntax: https://github.com/othree/javascript-libraries-syntax.vim
-.. _tern_for_vim: https://github.com/marijnh/tern_for_vim
 .. _vim-angular-template: https://github.com/curist/vim-angular-template
-.. _vim-session: https://github.com/xolox/vim-session
 .. _nerdcommenter: https://github.com/scrooloose/nerdcommenter
 .. _vim-velocity: https://github.com/lepture/vim-velocity
 .. _MatchTag: https://github.com/gregsexton/MatchTag
@@ -173,8 +164,6 @@ Key                     Command
 ``g*``                  :Ack -w current_word
 ----------------------  -----------------------------------------------------------------
 ``ga``                  :AckAdd! (add results to the current search)
-----------------------  -----------------------------------------------------------------
-``<CTRL-i>``            Invokes :TernDef in insert and command modes
 ----------------------  -----------------------------------------------------------------
 ``<TAB>``               Indent line in visual and normal modes
 ----------------------  -----------------------------------------------------------------
