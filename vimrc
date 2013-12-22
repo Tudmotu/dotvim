@@ -250,6 +250,10 @@ au! BufRead,BufNewFile *.vm set filetype=velocity
 
 " mustache 
 au! BufRead,BufNewFile *.mustache set filetype=html
+au! BufRead,BufNewFile *.ms set filetype=html
+hi def link mustacheInside Identifier
+hi def link mustacheSection Conditional 
+hi def link mustacheUnescape String 
 
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
