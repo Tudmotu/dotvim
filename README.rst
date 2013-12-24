@@ -98,7 +98,7 @@ Plugins
 .. _snipmate-snippets : https://github.com/honza/snipmate-snippets
 .. _python-mode: https://github.com/klen/python-mode
 .. _DrawIt: https://github.com/vim-scripts/DrawIt
-.. _vim-less: https://github.com/vim-scripts/vim-less
+.. _vim-less: https://github.com/groenewege/vim-less
 .. _vim-surround: https://github.com/tpope/vim-surround
 .. _Shebang: https://github.com/vim-scripts/Shebang
 .. _Tagbar: http://majutsushi.github.com/tagbar/
