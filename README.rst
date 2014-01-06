@@ -86,6 +86,7 @@ Plugins
 * vim-velocity_ - Syntax highlighting for velocity templates
 * MatchTag_ - Highlight the closing tag of the element cursor is currently on
 * HTML-AutoCloseTag_ - Automatically close HTML tags while typing
+* vim-javascript-syntax_ - Syntax highlighting for javascript
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -118,6 +119,7 @@ Plugins
 .. _vim-velocity: https://github.com/lepture/vim-velocity
 .. _MatchTag: https://github.com/gregsexton/MatchTag
 .. _HTML-AutoCloseTag: https://github.com/vim-scripts/HTML-AutoCloseTag
+.. _vim-javascript-syntax: https://github.com/jelera/vim-javascript-syntax
 
 Shortcuts and re-Mappings
 ============================
