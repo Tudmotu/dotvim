@@ -30,6 +30,7 @@ Features
 * VCS plugins (git, hg, svn, etc)
 * Tab completion
 * Syntax extensions for JavaScript libraries
+* Better indentation for JavaScript code
 
 Usage
 ============
@@ -87,6 +88,7 @@ Plugins
 * MatchTag_ - Highlight the closing tag of the element cursor is currently on
 * HTML-AutoCloseTag_ - Automatically close HTML tags while typing
 * vim-javascript-syntax_ - Syntax highlighting for javascript
+* JavaScript-Indent_ - Better indentation support for javascript files
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -120,6 +122,7 @@ Plugins
 .. _MatchTag: https://github.com/gregsexton/MatchTag
 .. _HTML-AutoCloseTag: https://github.com/vim-scripts/HTML-AutoCloseTag
 .. _vim-javascript-syntax: https://github.com/jelera/vim-javascript-syntax
+.. _JavaScript-Indent: https://github.com/vim-scripts/JavaScript-Indent
 
 Shortcuts and re-Mappings
 ============================
