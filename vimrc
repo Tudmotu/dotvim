@@ -109,6 +109,9 @@ syntax on
 filetype plugin on
 filetype indent plugin on
 
+" Tell vim to automatically look for tag files
+set tags=./tags,tags;$HOME
+
 
 " ==================================================
 " Basic Mappings
@@ -339,3 +342,4 @@ nmap <HOME> ^
 " ==================================================
 
 let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
