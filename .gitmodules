@@ -31,9 +31,6 @@
 [submodule "bundle/drawit"]
 	path = bundle/drawit
 	url = https://github.com/vim-scripts/DrawIt.git
-[submodule "bundle/vim-less"]
-	path = bundle/vim-less
-	url = https://github.com/vim-scripts/vim-less
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -112,3 +109,6 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "bundle/less"]
+	path = bundle/less
+	url = https://github.com/groenewege/vim-less.git
