@@ -31,6 +31,7 @@ Features
 * Tab completion
 * Syntax extensions for JavaScript libraries
 * Better indentation for JavaScript code
+* No code folding of any kind
 
 Usage
 ============

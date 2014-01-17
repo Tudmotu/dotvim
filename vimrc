@@ -75,6 +75,7 @@ set matchtime=3
 set sm                  " show matching braces, somewhat annoying...
 set mouse=a
 set history=500         " larger history
+set nofoldenable        " disable folding
 
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
