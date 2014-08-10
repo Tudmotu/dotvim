@@ -249,15 +249,15 @@ au! BufRead,BufNewFile *.json set filetype=json
 " jquery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-" velocity 
+" velocity
 au! BufRead,BufNewFile *.vm set filetype=velocity
 
-" mustache 
+" mustache
 au! BufRead,BufNewFile *.mustache set filetype=html
 au! BufRead,BufNewFile *.ms set filetype=html
 hi def link mustacheInside Identifier
-hi def link mustacheSection Conditional 
-hi def link mustacheUnescape String 
+hi def link mustacheSection Conditional
+hi def link mustacheUnescape String
 
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
@@ -270,6 +270,11 @@ autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 " snipMate
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': ['html'] }
 
 
 " ==================================================
@@ -313,6 +318,13 @@ set wildignore+=*.so,*.swp,*.zip,*.pyc,*.pyo,*/target/*
 if filereadable(expand("~/.vim/vimrc.local"))
     source ~/.vim/vimrc.local
 endif
+
+" ==================================================
+" Tabular Mappings
+" ==================================================
+
+vmap <Leader>T= :Tab<space>/^[^=]*\zs=\ze<CR>
+vmap <Leader>T: :Tab<space>/^[^:]*\zs:\ze<CR>
 
 " ==================================================
 " Ack
