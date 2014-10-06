@@ -118,3 +118,6 @@
 [submodule "bundle/JavaScript-Indent"]
 	path = bundle/JavaScript-Indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "/home/yotam/.vim/bundle/vim-coffee-script"]
+	path = /home/yotam/.vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
