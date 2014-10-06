@@ -327,6 +327,14 @@ vmap <Leader>T= :Tab<space>/^[^=]*\zs=\ze<CR>
 vmap <Leader>T: :Tab<space>/^[^:]*\zs:\ze<CR>
 
 " ==================================================
+" Java Getter/Setter Mappings
+" ==================================================
+
+map <Leader>jgs :InsertBothGetterSetter<CR>
+map <Leader>jg :InsertGetter<CR>
+map <Leader>js :InsertSetter<CR>
+
+" ==================================================
 " Ack
 " ==================================================
 

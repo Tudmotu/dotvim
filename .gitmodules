@@ -121,3 +121,6 @@
 [submodule "/home/yotam/.vim/bundle/vim-coffee-script"]
 	path = /home/yotam/.vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/vim-java-get-set"]
+	path = bundle/vim-java-get-set
+	url = https://github.com/Dinduks/vim-java-get-set.git
