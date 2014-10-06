@@ -90,6 +90,8 @@ Plugins
 * HTML-AutoCloseTag_ - Automatically close HTML tags while typing
 * vim-javascript-syntax_ - Syntax highlighting for javascript
 * JavaScript-Indent_ - Better indentation support for javascript files
+* vim-coffee-script_ - CoffeScript syntax support
+* vim-java-get-set_ - Generate getter/setter methods in Java files
 
 .. _pathogen.vim: https://github.com/tpope/vim-pathogen
 .. _Solarized: https://github.com/altercation/vim-colors-solarized
@@ -124,6 +126,8 @@ Plugins
 .. _HTML-AutoCloseTag: https://github.com/vim-scripts/HTML-AutoCloseTag
 .. _vim-javascript-syntax: https://github.com/jelera/vim-javascript-syntax
 .. _JavaScript-Indent: https://github.com/vim-scripts/JavaScript-Indent
+.. _vim-coffee-script: https://github.com/kchmck/vim-coffee-script
+.. _vim-java-get-set: https://github.com/Dinduks/vim-java-get-set
 
 Shortcuts and re-Mappings
 ============================
@@ -161,7 +165,7 @@ Key                     Command
 ----------------------  -----------------------------------------------------------------
 ``<ALT><`` ``<ALT>>``   Resize vertical splits
 ----------------------  -----------------------------------------------------------------
-``<F9>``                 Toggle logical (RTL, e.g: Hebrew) editing
+``<F9>``                Toggle logical (RTL, e.g: Hebrew) editing
 ----------------------  -----------------------------------------------------------------
 ``<F8>``                Toggle visual (RTL, e.g: Hebrew) editing
 ----------------------  -----------------------------------------------------------------
@@ -176,4 +180,14 @@ Key                     Command
 ``<S-TAB>``             Unindent line in visual and normal modes
 ----------------------  -----------------------------------------------------------------
 ``<HOME>``              'Soft-Home' (first non-white-space character)
+----------------------  -----------------------------------------------------------------
+``<Leader>T=``          Align the ``=`` signs in a block of variables
+----------------------  -----------------------------------------------------------------
+``<Leader>T=``          Align the ``:`` signs in a block of variables
+----------------------  -----------------------------------------------------------------
+``<Leader>jgs``         :InsertBothGetterSetter
+----------------------  -----------------------------------------------------------------
+``<Leader>js``          :InsertSetterOnly
+----------------------  -----------------------------------------------------------------
+``<Leader>jg``          :InsertGetterOnly
 ======================  =================================================================
