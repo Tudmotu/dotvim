@@ -24,6 +24,9 @@ set nocompatible
 " Make sure this pathogen is taken into account
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+" To disable a plugin, add it's bundle name to the following list
+" let g:pathogen_disabled = ['python-mode']
+
 
 
 " ==================================================
@@ -266,10 +269,6 @@ autocmd Filetype css setlocal ts=4 sw=4 expandtab
 autocmd Filetype less setlocal ts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
-
-" snipMate
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
