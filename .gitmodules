@@ -106,3 +106,6 @@
 [submodule "bundle/vim-java-get-set"]
 	path = bundle/vim-java-get-set
 	url = https://github.com/Dinduks/vim-java-get-set.git
+[submodule "bundle/vim-easytags"]
+	path = bundle/vim-easytags
+	url = git@github.com:xolox/vim-easytags.git
