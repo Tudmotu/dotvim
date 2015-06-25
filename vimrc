@@ -115,7 +115,8 @@ filetype plugin on
 filetype indent plugin on
 
 " Tell vim to automatically look for tag files
-set tags=./tags,tags;$HOME
+"set tags=./tags,tags;$HOME
+set tags=./.ctags
 
 
 " ==================================================
@@ -263,6 +264,7 @@ hi def link mustacheInside Identifier
 hi def link mustacheSection Conditional
 hi def link mustacheUnescape String
 
+" tab expansion
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
 autocmd Filetype xml setlocal ts=4 sw=4 expandtab
@@ -275,6 +277,7 @@ autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 let g:syntastic_mode_map = { 'mode': 'active',
                             \ 'active_filetypes': [],
                             \ 'passive_filetypes': ['html'] }
+autocmd BufWritePost *.java :SyntasticCheck
 
 
 " ==================================================
@@ -376,3 +379,11 @@ nmap <HOME> ^
 
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
+
+" ==================================================
+" vim-easytags
+" ==================================================
+
+let g:easytags_always_enabled = 1
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
