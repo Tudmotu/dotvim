@@ -112,3 +112,6 @@
 [submodule "bundle/vim-java-unused-imports"]
 	path = bundle/vim-java-unused-imports
 	url = git@github.com:akhaku/vim-java-unused-imports.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
