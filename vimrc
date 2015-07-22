@@ -301,7 +301,7 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType java set omnifunc=javacomplete#Complete
+"autocmd FileType java set omnifunc=javacomplete#Complete
 
 
 " ==================================================
@@ -384,6 +384,8 @@ let g:airline_powerline_fonts = 1
 " vim-easytags
 " ==================================================
 
-let g:easytags_always_enabled = 1
+"let g:easytags_always_enabled = 1
+let g:easytags_auto_highlight = 0
+let g:easytags_syntax_keyword = 'always'
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 1
