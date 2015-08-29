@@ -335,6 +335,18 @@ map <Leader>jgs :InsertBothGetterSetter<CR>
 map <Leader>jg :InsertGetter<CR>
 map <Leader>js :InsertSetter<CR>
 
+let g:javagetset_getterTemplate =
+    \ "\n" .
+    \ "%modifiers% %type% %funcname%() {\n" .
+    \ "    return %varname%;\n" .
+    \ "}"
+
+let g:javagetset_setterTemplate =
+    \ "\n" .
+    \ "%modifiers% void %funcname%(%type% %varname%) {\n" .
+    \ "    this.%varname% = %varname%;\n" .
+    \ "}"
+
 " ==================================================
 " Ack
 " ==================================================
