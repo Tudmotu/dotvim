@@ -158,6 +158,7 @@ noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " Highlight end of line whitespace.
 highlight WhitespaceEOL ctermbg=red guibg=red
+highlight MatchParen ctermbg=blue
 match WhitespaceEOL /\s\+$/
 
 " Clean all end of line extra whitespace with ,S
