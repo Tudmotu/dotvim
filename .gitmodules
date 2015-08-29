@@ -106,3 +106,6 @@
 [submodule "bundle/vim-easytags"]
 	path = bundle/vim-easytags
 	url = git@github.com:xolox/vim-easytags.git
+[submodule "bundle/yajs.vim"]
+	path = bundle/yajs.vim
+	url = https://github.com/othree/yajs.vim.git
