@@ -94,9 +94,6 @@
 [submodule "bundle/less"]
 	path = bundle/less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "bundle/vim-javascript-syntax"]
-	path = bundle/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "bundle/JavaScript-Indent"]
 	path = bundle/JavaScript-Indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
@@ -109,6 +106,9 @@
 [submodule "bundle/vim-easytags"]
 	path = bundle/vim-easytags
 	url = git@github.com:xolox/vim-easytags.git
+[submodule "bundle/yajs.vim"]
+	path = bundle/yajs.vim
+	url = https://github.com/othree/yajs.vim.git
 [submodule "bundle/vim-java-unused-imports"]
 	path = bundle/vim-java-unused-imports
 	url = git@github.com:akhaku/vim-java-unused-imports.git
