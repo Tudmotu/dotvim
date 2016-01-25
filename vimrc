@@ -1,33 +1,36 @@
-" https://github.com/MeirKriheli/dotvim
-"
-" ==================================================
-" Shortcuts Documented
-" ==================================================
-" jj - act as Esc in insert and command modes
-" <CTRL> + [hjkl] and Control + Arrow Keys -  window movement commands
-" <C-TAB> and <C-TAB> - Next or previous buffer
-" <leader>v - loads .vimrc
-" <leader>V - reloads .vimrec -- activating changes (needs save)
-" <leader>S - Remove trailing whitespace
-" <F4> - Toggle search highlight
-" - and + - Resize horizontal splits
-" <M>< and <M>< - Resize vertical splits
-" <F2> - Close current split (window)
-" <F3> - Toggle NERD tree
-" <F4> - Toggle search highlight
-" <F5> - Toggle Tagbar
-" <F9> - Toggle logical (RTL, e.g: Hebrew) editing
-" <F8> - Toggle visual (RTL, e.g: Hebrew) editing
-
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Make sure this pathogen is taken into account
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" To disable a plugin, add it's bundle name to the following list
-" let g:pathogen_disabled = ['python-mode']
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mxw/vim-jsx'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mileszs/ack.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'altercation/vim-colors-solarized'
 
-
+call vundle#end()
+filetype plugin indent on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 
 " ==================================================
 " Color scheme and fonts
