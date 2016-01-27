@@ -36,7 +36,7 @@ filetype plugin indent on
 " Color scheme and fonts
 " ==================================================
 colorscheme solarized
-set background=dark
+set background=light
 
 if has("gui_running")
     set guifont=Droid\ Sans\ Mono\ 10,Andale\ Mono\ Regular\ 10,\ Liberation\ Mono\ 9
