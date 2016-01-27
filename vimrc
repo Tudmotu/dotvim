@@ -111,7 +111,7 @@ set softtabstop=4
 
 " Keep swap files out of the working dir
 " Adjust if needed in another dir
-set directory=~/tmp
+set directory=~/.vim/tmp
 
 syntax on
 filetype plugin on
