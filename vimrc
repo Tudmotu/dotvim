@@ -20,6 +20,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shougo/unite.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -393,3 +394,12 @@ let g:easytags_auto_highlight = 0
 let g:easytags_syntax_keyword = 'always'
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 1
+
+" ==================================================
+" unite.vim
+" ==================================================
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert file_rec<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
+nnoremap <leader><leader> :<C-u>Unite -buffer-name=buffer buffer<cr>
