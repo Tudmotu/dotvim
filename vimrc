@@ -22,6 +22,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'groenewege/vim-less'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
+Plugin 'vim-scripts/paredit.vim'
 
 call vundle#end()
 filetype plugin indent on
