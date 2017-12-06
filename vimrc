@@ -1,39 +1,45 @@
-" https://github.com/MeirKriheli/dotvim
-"
-" ==================================================
-" Shortcuts Documented
-" ==================================================
-" jj - act as Esc in insert and command modes
-" <CTRL> + [hjkl] and Control + Arrow Keys -  window movement commands
-" <C-TAB> and <C-TAB> - Next or previous buffer
-" <leader>v - loads .vimrc
-" <leader>V - reloads .vimrec -- activating changes (needs save)
-" <leader>S - Remove trailing whitespace
-" <F4> - Toggle search highlight
-" - and + - Resize horizontal splits
-" <M>< and <M>< - Resize vertical splits
-" <F2> - Close current split (window)
-" <F3> - Toggle NERD tree
-" <F4> - Toggle search highlight
-" <F5> - Toggle Tagbar
-" <F9> - Toggle logical (RTL, e.g: Hebrew) editing
-" <F8> - Toggle visual (RTL, e.g: Hebrew) editing
-
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Make sure this pathogen is taken into account
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" To disable a plugin, add it's bundle name to the following list
-" let g:pathogen_disabled = ['python-mode']
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mxw/vim-jsx'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mileszs/ack.vim'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fireplace'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'groenewege/vim-less'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Shougo/unite.vim'
+Plugin 'vim-scripts/paredit.vim'
 
-
+call vundle#end()
+filetype plugin indent on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
 
 " ==================================================
 " Color scheme and fonts
 " ==================================================
 colorscheme solarized
-set background=dark
+set background=light
 
 if has("gui_running")
     set guifont=Droid\ Sans\ Mono\ 10,Andale\ Mono\ Regular\ 10,\ Liberation\ Mono\ 9
@@ -108,7 +114,7 @@ set softtabstop=4
 
 " Keep swap files out of the working dir
 " Adjust if needed in another dir
-set directory=~/tmp
+set directory=~/.vim/tmp
 
 syntax on
 filetype plugin on
@@ -390,3 +396,12 @@ let g:easytags_auto_highlight = 0
 let g:easytags_syntax_keyword = 'always'
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 1
+
+" ==================================================
+" unite.vim
+" ==================================================
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert file_rec<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
+nnoremap <leader><leader> :<C-u>Unite -buffer-name=buffer buffer<cr>
