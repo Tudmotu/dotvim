@@ -23,6 +23,14 @@ Plugin 'groenewege/vim-less'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'Dinduks/vim-java-get-set'
+Plugin 'rustushki/JavaImp.vim'
+Plugin 'akhaku/vim-java-unused-imports'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'tomlion/vim-solidity'
+Plugin 'keith/swift.vim'
+Plugin 'mhinz/vim-grepper'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -341,8 +349,8 @@ vmap <Leader>T: :Tab<space>/^[^:]*\zs:\ze<CR>
 " ==================================================
 
 map <Leader>jgs :InsertBothGetterSetter<CR>
-map <Leader>jg :InsertGetter<CR>
-map <Leader>js :InsertSetter<CR>
+map <Leader>get :InsertGetter<CR>
+map <Leader>set :InsertSetter<CR>
 
 let g:javagetset_getterTemplate =
     \ "\n" .
@@ -355,6 +363,17 @@ let g:javagetset_setterTemplate =
     \ "%modifiers% void %funcname%(%type% %varname%) {\n" .
     \ "    this.%varname% = %varname%;\n" .
     \ "}"
+
+" ==================================================
+" JavaImp - Add Java imports
+" ==================================================
+let g:JavaImpPaths = $HOME . "/.m2/repository"
+let g:JavaImpDataDir = $HOME . "/.vim/.JavaImp"
+
+" ==================================================
+" java-unused-imports - Remove Java imports
+" ==================================================
+nmap <leader>jui :UnusedImportsRemove<cr>
 
 " ==================================================
 " Ack
