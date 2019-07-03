@@ -42,15 +42,12 @@ bundles::
     git clone https://github.com/Tudmotu/dotvim.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
-    git submodule init
-    git submodule update
 
 To add or override settings, place them in ``~/.vim/vimrc.local``.
 
-To update submodules in the future::
+To install plugins using Vundle, from within vim::
 
-    cd ~/.vim
-    git submodule foreach git pull
+    :VundleInstall
 
 
 Shortcuts and re-Mappings
