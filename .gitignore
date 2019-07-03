@@ -3,3 +3,6 @@
 vimrc.local
 spell/*
 sessions/*
+tmp/*
+.JavaImp/*
+bundle/*
