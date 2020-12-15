@@ -4,12 +4,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'mxw/vim-jsx'
 Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mileszs/ack.vim'
@@ -17,20 +13,14 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-fireplace'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'groenewege/vim-less'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/unite.vim'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'Dinduks/vim-java-get-set'
 Plugin 'rustushki/JavaImp.vim'
 Plugin 'akhaku/vim-java-unused-imports'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tomlion/vim-solidity'
-Plugin 'keith/swift.vim'
 Plugin 'mhinz/vim-grepper'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -93,7 +83,16 @@ set matchtime=3
 set sm                  " show matching braces, somewhat annoying...
 set mouse=a
 set history=500         " larger history
-set nofoldenable        " disable folding
+
+"-- FOLDING --
+set foldmethod=syntax "syntax highlighting items specify folds
+set foldcolumn=1 "defines 1 col at window left, to indicate folding
+let javaScript_fold=1 "activate folding by JS syntax
+set foldlevelstart=99 "start file with all folds opened
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
@@ -404,6 +403,7 @@ nmap <HOME> ^
 " ==================================================
 
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'unicode'
 " let g:airline#extensions#tabline#enabled = 1
 
 " ==================================================
