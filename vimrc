@@ -1,9 +1,18 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" ==================================================
+" VIM Polyglot
+" ==================================================
+
+let g:polyglot_disabled = ['typescript']
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
@@ -20,7 +29,6 @@ Plugin 'Dinduks/vim-java-get-set'
 Plugin 'rustushki/JavaImp.vim'
 Plugin 'akhaku/vim-java-unused-imports'
 Plugin 'mhinz/vim-grepper'
-Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -84,15 +92,6 @@ set sm                  " show matching braces, somewhat annoying...
 set mouse=a
 set history=500         " larger history
 
-"-- FOLDING --
-set foldmethod=syntax "syntax highlighting items specify folds
-set foldcolumn=1 "defines 1 col at window left, to indicate folding
-let javaScript_fold=1 "activate folding by JS syntax
-set foldlevelstart=99 "start file with all folds opened
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
 
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
