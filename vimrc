@@ -1,64 +1,126 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-" ==================================================
-" VIM Polyglot
-" ==================================================
 
 let g:polyglot_disabled = ['typescript']
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'mileszs/ack.vim'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-fireplace'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'Shougo/unite.vim'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'Dinduks/vim-java-get-set'
-Plugin 'rustushki/JavaImp.vim'
-Plugin 'akhaku/vim-java-unused-imports'
-Plugin 'mhinz/vim-grepper'
+Plug 'sheerun/vim-polyglot'
+Plug 'leafgarland/typescript-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'preservim/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bling/vim-airline'
+Plug 'kylechui/nvim-surround'
+Plug 'lifepillar/vim-solarized8'
+Plug 'Shougo/unite.vim'
+Plug 'MordechaiHadad/nvim-lspmanager' | Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
-call vundle#end()
-filetype plugin indent on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+call plug#end()
+
+lua << EOF
+    require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+    })
+
+    -- Set up nvim-cmp.
+    local cmp = require'cmp'
+
+    cmp.setup({
+        snippet = {
+            -- REQUIRED - you must specify a snippet engine
+            expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            end,
+        },
+        window = {
+            -- completion = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
+        },
+        mapping = cmp.mapping.preset.insert({
+            ['<C-e>'] = cmp.mapping.abort(),
+            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' }, -- For vsnip users.
+        -- { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'snippy' }, -- For snippy users.
+        }, {
+            { name = 'buffer' },
+        })
+    })
+
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+        sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+        }, {
+            { name = 'buffer' },
+        })
+    })
+
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ '/', '?' }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = 'buffer' }
+        }
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+        { name = 'path' }
+        }, {
+            { name = 'cmdline' }
+        })
+    })
+
+    -- Set up lspconfig.
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+
+    lspList = {
+        "tsserver",
+        "solang",
+        "pyright",
+        "html",
+        "dockerls",
+        "cssls",
+        "bashls",
+    }
+
+    for _, lspName in pairs(lspList) do
+        require('lspconfig')[lspName].setup { capabilities = capabilities }
+    end
+
+    require('lspmanager').setup({
+        ensure_installed = lspList
+    })
+EOF
 
 " ==================================================
 " Color scheme and fonts
 " ==================================================
-colorscheme solarized
+set termguicolors
 set background=light
-
-if has("gui_running")
-    set guifont=Droid\ Sans\ Mono\ 10,Andale\ Mono\ Regular\ 10,\ Liberation\ Mono\ 9
-    set guioptions-=T   " Toolbars off (icons on top of the screen)
-else
-    set t_Co=256
-    "let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-endif
-
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-
+autocmd vimenter * ++nested colorscheme solarized8
+colorscheme solarized8
 
 " ==================================================
 " Basic Settings
@@ -95,7 +157,6 @@ set history=500         " larger history
 
 set statusline=%<%f\                     " Filename
 set statusline+=%w%h%m%r                 " Options
-set statusline+=%{fugitive#statusline()} " Git Hotness
 set statusline+=\ [%{&ff}/%Y]            " filetype
 set statusline+=\ [%{getcwd()}]          " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -178,21 +239,14 @@ match WhitespaceEOL /\s\+$/
 :nnoremap <silent><leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " ==================================================
-" MiniBufExplorer settings
-" ==================================================
-
-"let g:miniBufExplUseSingleClick = 1     " Single click on tabs to goto the selected buffer
-let g:miniBufExplModSelTarget = 1       " If using other explorers like TagList
-
-" ==================================================
 " Window navigation
 " ==================================================
 
 " control + vim direction key to navigate windows
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
+noremap <C-J> <C-w>j
+noremap <C-K> <C-w>k
+noremap <C-H> <C-w>h
+noremap <C-L> <C-w>l
 
 " control + arrow key to navigate windows
 noremap <C-Down> <C-W>j
@@ -286,100 +340,12 @@ autocmd Filetype less setlocal ts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': ['html'] }
-autocmd BufWritePost *.java :SyntasticCheck
-
-
-" ==================================================
-" Tagbar Mapping
-" ==================================================
-
-nmap <F5> :TagbarToggle<CR>
-
 " ==================================================
 " NERDTree
 " ==================================================
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 map <F3> :NERDTreeToggle<CR>
-
-" ==================================================
-" Omni Completion
-" ==================================================
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType java set omnifunc=javacomplete#Complete
-
-
-" ==================================================
-" SuperTab
-" ==================================================
-
-let g:SuperTabDefaultCompletionType = "context"
-
-
-" ==================================================
-" CtrlP
-" ==================================================
-
-set wildignore+=*.so,*.swp,*.zip,*.pyc,*.pyo,*/target/*
-
-" Allow overrides via ~/.vim/vimrc.local
-if filereadable(expand("~/.vim/vimrc.local"))
-    source ~/.vim/vimrc.local
-endif
-
-" ==================================================
-" Tabular Mappings
-" ==================================================
-
-vmap <Leader>T= :Tab<space>/^[^=]*\zs=\ze<CR>
-vmap <Leader>T: :Tab<space>/^[^:]*\zs:\ze<CR>
-
-" ==================================================
-" Java Getter/Setter Mappings
-" ==================================================
-
-map <Leader>jgs :InsertBothGetterSetter<CR>
-map <Leader>get :InsertGetter<CR>
-map <Leader>set :InsertSetter<CR>
-
-let g:javagetset_getterTemplate =
-    \ "\n" .
-    \ "%modifiers% %type% %funcname%() {\n" .
-    \ "    return %varname%;\n" .
-    \ "}"
-
-let g:javagetset_setterTemplate =
-    \ "\n" .
-    \ "%modifiers% void %funcname%(%type% %varname%) {\n" .
-    \ "    this.%varname% = %varname%;\n" .
-    \ "}"
-
-" ==================================================
-" JavaImp - Add Java imports
-" ==================================================
-let g:JavaImpPaths = $HOME . "/.m2/repository"
-let g:JavaImpDataDir = $HOME . "/.vim/.JavaImp"
-
-" ==================================================
-" java-unused-imports - Remove Java imports
-" ==================================================
-nmap <leader>jui :UnusedImportsRemove<cr>
-
-" ==================================================
-" Ack
-" ==================================================
-
-nmap g/ :Ack<space>
-nmap g* :Ack -w <C-R><C-W><space>
-nmap ga :AckAdd!<space>
 
 " ==================================================
 " Tab Key Mappings
@@ -423,3 +389,8 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert file_rec<cr>
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 nnoremap <leader><leader> :<C-u>Unite -buffer-name=buffer buffer<cr>
+
+" ==================================================
+" coq_nvim
+" ==================================================
+let g:coq_settings = { 'auto_start': 'shut-up' }
