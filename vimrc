@@ -340,6 +340,12 @@ autocmd Filetype less setlocal ts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 
+augroup ReactFiletypes
+  autocmd!
+  autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
+  autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
+augroup END
+
 " ==================================================
 " NERDTree
 " ==================================================
