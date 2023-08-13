@@ -10,7 +10,8 @@ Main Features
 * Fully configured lspconfig using mason.vim_ and mason-lspconfig.nvim_
 * Uses telescope.nvim_ with some simple configuration options
 * vim-airline_
-* NERDTree_
+* NvimTree_ including icons via nvim-web-devicons_ (requires a patched NerdFont_)
+* Enchanced syntax highlighting using Treesitter_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
 
 .. _nvim-solarized-lua link: https://github.com/ishan9299/nvim-solarized-lua
@@ -19,7 +20,10 @@ Main Features
 .. _mason-lspconfig link: https://github.com/williamboman/mason-lspconfig.nvim
 .. _telescope.nvim link: https://github.com/nvim-telescope/telescope.nvim
 .. _vim-airline link: https://github.com/vim-airline/vim-airline
-.. _NERDTREE link: https://github.com/preservim/nerdtree
+.. _NvimTree link: https://github.com/nvim-tree/nvim-tree.lua
+.. _NerdFont link: https://www.nerdfonts.com/
+.. _Treesitter link: https://github.com/nvim-treesitter/nvim-treesitter
+.. _nvim-web-devicons link: https://github.com/nvim-tree/nvim-web-devicons
 
 Usage
 ============
