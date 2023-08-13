@@ -5,7 +5,9 @@ let g:polyglot_disabled = ['typescript']
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'sheerun/vim-polyglot'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/nerdtree'
@@ -13,9 +15,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'bling/vim-airline'
 Plug 'kylechui/nvim-surround'
 Plug 'lifepillar/vim-solarized8'
-Plug 'Shougo/unite.vim'
-Plug 'MordechaiHadad/nvim-lspmanager' | Plug 'neovim/nvim-lspconfig'
-Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -24,6 +23,11 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'javiorfo/nvim-soil'
+Plug 'javiorfo/nvim-nyctophilia'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 
 call plug#end()
 
@@ -91,13 +95,16 @@ lua << EOF
         })
     })
 
+    require("mason").setup()
+    require("mason-lspconfig").setup()
+
     -- Set up lspconfig.
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
     lspList = {
         "tsserver",
-        "solang",
+        "solidity_ls_nomicfoundation",
         "pyright",
         "html",
         "dockerls",
@@ -109,9 +116,40 @@ lua << EOF
         require('lspconfig')[lspName].setup { capabilities = capabilities }
     end
 
-    require('lspmanager').setup({
+    require('mason-lspconfig').setup({
         ensure_installed = lspList
     })
+
+    require('telescope').setup({
+        defaults = {
+            layout_config = {
+                prompt_position = 'top'
+            },
+            mappings = {
+                i = {
+                    ["<ESC>"] = "close",
+                },
+            },
+        },
+        pickers = {
+            buffers = {
+                initial_mode = 'normal',
+                theme = 'dropdown',
+                mappings = {
+                    n = {
+                        ["d"] = "delete_buffer",
+                        ["q"] = "close",
+                    },
+                },
+            },
+        },
+    })
+
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+    vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader><leader>', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 EOF
 
 " ==================================================
@@ -160,10 +198,6 @@ set statusline+=%w%h%m%r                 " Options
 set statusline+=\ [%{&ff}/%Y]            " filetype
 set statusline+=\ [%{getcwd()}]          " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-
-set wildmenu                             " show list instead of just completing
-set wildmode=list:longest,full           " command <Tab> completion, list matches, then longest common part, then all.
-set completeopt=menu                     " Just show the menu upon completion (faster)
 
 " Columns and lines
 set colorcolumn=80
@@ -254,15 +288,6 @@ noremap <C-Up> <C-W>k
 noremap <C-Left> <C-W>h
 noremap <C-Right> <C-W>l
 
-" <C-TAB> and <C-S-TAB> to switch buffers " in the current window
-noremap <C-TAB> :MBEbn<CR>
-noremap <C-S-TAB> :MBEbp<CR>
-"
-" Or, in MRU fashion
-"
-"noremap <C-TAB> :MBEbf<CR>
-"noremap <C-S-TAB> :MBEbb<CR>
-
 
 " ==================================================
 " Splits handling
@@ -308,29 +333,6 @@ imap <F8> <Esc>:set invrevins<CR>a
 " ==================================================
 " FileType and Indentation settings
 " ==================================================
-
-" define less filetype
-au BufNewFile,BufRead *.less set filetype=less
-
-" make the smarty .tpl files html files for our purposes
-au BufNewFile,BufRead *.tpl set filetype=html
-
-" json
-au! BufRead,BufNewFile *.json set filetype=json
-
-" jquery
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-
-" velocity
-au! BufRead,BufNewFile *.vm set filetype=velocity
-
-" mustache
-au! BufRead,BufNewFile *.mustache set filetype=html
-au! BufRead,BufNewFile *.ms set filetype=html
-hi def link mustacheInside Identifier
-hi def link mustacheSection Conditional
-hi def link mustacheUnescape String
-
 " tab expansion
 autocmd Filetype html setlocal ts=4 sw=4 expandtab
 autocmd Filetype xhtml setlocal ts=4 sw=4 expandtab
@@ -376,27 +378,3 @@ nmap <HOME> ^
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'unicode'
 " let g:airline#extensions#tabline#enabled = 1
-
-" ==================================================
-" vim-easytags
-" ==================================================
-
-"let g:easytags_always_enabled = 1
-let g:easytags_auto_highlight = 0
-let g:easytags_syntax_keyword = 'always'
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 1
-
-" ==================================================
-" unite.vim
-" ==================================================
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert file_rec<cr>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
-nnoremap <leader><leader> :<C-u>Unite -buffer-name=buffer buffer<cr>
-
-" ==================================================
-" coq_nvim
-" ==================================================
-let g:coq_settings = { 'auto_start': 'shut-up' }
