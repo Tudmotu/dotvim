@@ -5,6 +5,7 @@ let g:polyglot_disabled = ['typescript']
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'ishan9299/nvim-solarized-lua'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
@@ -14,7 +15,6 @@ Plug 'preservim/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bling/vim-airline'
 Plug 'kylechui/nvim-surround'
-Plug 'lifepillar/vim-solarized8'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -28,6 +28,7 @@ Plug 'javiorfo/nvim-nyctophilia'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -145,11 +146,31 @@ lua << EOF
         },
     })
 
+    vim.g.mapleader = ','
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
     vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, {})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+    require'nvim-treesitter.configs'.setup {
+        -- A list of parser names, or "all" (the five listed parsers should always be installed)
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript",
+            "java", "go", "python", "groovy", "rst", "bash", "dockerfile"},
+
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = false,
+
+        highlight = {
+            enable = true,
+        },
+    }
+
+    vim.cmd('colorscheme solarized')
 EOF
 
 " ==================================================
@@ -157,8 +178,6 @@ EOF
 " ==================================================
 set termguicolors
 set background=light
-autocmd vimenter * ++nested colorscheme solarized8
-colorscheme solarized8
 
 " ==================================================
 " Basic Settings

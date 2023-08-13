@@ -6,15 +6,18 @@ Main Features
 ============
 
 * Plugin manager is vim-plug_
+* Colorscheme is Solarized Light via nvim-solarized-lua_
 * Fully configured lspconfig using mason.vim_ and mason-lspconfig.nvim_
-* Uses telescope.nvim with some simple configuration options
+* Uses telescope.nvim_ with some simple configuration options
 * vim-airline_
 * NERDTree_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
 
+.. _nvim-solarized-lua link: https://github.com/ishan9299/nvim-solarized-lua
 .. _vim-plug link: https://github.com/junegunn/vim-plug
 .. _mason.vim link: https://github.com/williamboman/mason.nvim
 .. _mason-lspconfig link: https://github.com/williamboman/mason-lspconfig.nvim
+.. _telescope.nvim link: https://github.com/nvim-telescope/telescope.nvim
 .. _vim-airline link: https://github.com/vim-airline/vim-airline
 .. _NERDTREE link: https://github.com/preservim/nerdtree
 
