@@ -34,6 +34,8 @@ Plug 'nvim-tree/nvim-tree.lua'
 call plug#end()
 
 lua << EOF
+    vim.opt.fillchars='eob: '
+
     -- disable netrw at the very start of your init.lua
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
