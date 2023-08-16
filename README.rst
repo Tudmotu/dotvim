@@ -14,16 +14,16 @@ Main Features
 * Enchanced syntax highlighting using Treesitter_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
 
-.. _nvim-solarized-lua link: https://github.com/ishan9299/nvim-solarized-lua
-.. _vim-plug link: https://github.com/junegunn/vim-plug
-.. _mason.vim link: https://github.com/williamboman/mason.nvim
-.. _mason-lspconfig link: https://github.com/williamboman/mason-lspconfig.nvim
-.. _telescope.nvim link: https://github.com/nvim-telescope/telescope.nvim
-.. _vim-airline link: https://github.com/vim-airline/vim-airline
-.. _NvimTree link: https://github.com/nvim-tree/nvim-tree.lua
-.. _NerdFont link: https://www.nerdfonts.com/
-.. _Treesitter link: https://github.com/nvim-treesitter/nvim-treesitter
-.. _nvim-web-devicons link: https://github.com/nvim-tree/nvim-web-devicons
+.. _nvim-solarized-lua: https://github.com/ishan9299/nvim-solarized-lua
+.. _vim-plug: https://github.com/junegunn/vim-plug
+.. _mason.vim: https://github.com/williamboman/mason.nvim
+.. _mason-lspconfig.nvim: https://github.com/williamboman/mason-lspconfig.nvim
+.. _telescope.nvim: https://github.com/nvim-telescope/telescope.nvim
+.. _vim-airline: https://github.com/vim-airline/vim-airline
+.. _NvimTree: https://github.com/nvim-tree/nvim-tree.lua
+.. _NerdFont: https://www.nerdfonts.com/
+.. _Treesitter: https://github.com/nvim-treesitter/nvim-treesitter
+.. _nvim-web-devicons: https://github.com/nvim-tree/nvim-web-devicons
 
 Usage
 ============
