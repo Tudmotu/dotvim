@@ -246,6 +246,7 @@ lua << EOF
     require('Comment').setup()
 
     vim.cmd('colorscheme solarized')
+    vim.opt.signcolumn = 'number'
 EOF
 
 " ==================================================
