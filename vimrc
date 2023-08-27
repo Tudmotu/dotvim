@@ -34,6 +34,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 call plug#end()
 
 lua << EOF
+    vim.g.mapleader = ','
     vim.opt.fillchars='eob: '
 
     -- disable netrw at the very start of your init.lua
@@ -48,16 +49,19 @@ lua << EOF
 
     -- OR setup with some options
     require("nvim-tree").setup({
-      sort_by = "case_sensitive",
-      view = {
-        width = 30,
-      },
-      renderer = {
-        group_empty = true,
-      },
-      filters = {
-        dotfiles = true,
-      },
+        sort_by = "case_sensitive",
+        view = {
+            width = 30,
+        },
+        renderer = {
+            group_empty = true,
+        },
+        filters = {
+            dotfiles = false,
+        },
+        git = {
+            ignore = false
+        },
     })
 
     vim.keymap.set('n', '<F3>', require'nvim-tree.api'.tree.toggle, {})
@@ -160,28 +164,34 @@ lua << EOF
                 i = {
                     ["<ESC>"] = "close",
                 },
+                n = {
+                    ["q"] = "close",
+                },
             },
         },
         pickers = {
+            lsp_references = {
+                initial_mode = 'normal',
+            },
             buffers = {
                 initial_mode = 'normal',
                 theme = 'dropdown',
                 mappings = {
                     n = {
                         ["d"] = "delete_buffer",
-                        ["q"] = "close",
                     },
                 },
             },
         },
     })
 
-    vim.g.mapleader = ','
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
     vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, {})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+    vim.keymap.set('n', '<F12>', builtin.lsp_definitions, {})
+    vim.keymap.set('n', '<leader><F12>', builtin.lsp_references, {})
 
     require'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -247,6 +257,7 @@ lua << EOF
 
     vim.cmd('colorscheme solarized')
     vim.opt.signcolumn = 'number'
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
 EOF
 
 " ==================================================
