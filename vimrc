@@ -30,6 +30,8 @@ Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'stevearc/dressing.nvim'
+Plug 'ziontee113/icon-picker.nvim'
 
 call plug#end()
 
@@ -258,6 +260,9 @@ lua << EOF
     vim.cmd('colorscheme solarized')
     vim.opt.signcolumn = 'number'
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
+
+    require("icon-picker").setup({ disable_legacy_commands = true })
+    vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", { noremap = true, silent = true })
 EOF
 
 " ==================================================

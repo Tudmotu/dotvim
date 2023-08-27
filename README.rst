@@ -12,6 +12,7 @@ Main Features
 * vim-airline_
 * NvimTree_ including icons via nvim-web-devicons_ (requires a patched NerdFont_)
 * Enchanced syntax highlighting using Treesitter_
+* Emoji picker using icon-picker.nvim_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
 
 .. _nvim-solarized-lua: https://github.com/ishan9299/nvim-solarized-lua
@@ -23,6 +24,7 @@ Main Features
 .. _NvimTree: https://github.com/nvim-tree/nvim-tree.lua
 .. _NerdFont: https://www.nerdfonts.com/
 .. _Treesitter: https://github.com/nvim-treesitter/nvim-treesitter
+.. _icon-picker.nvim: https://github.com/ziontee113/icon-picker.nvim
 .. _nvim-web-devicons: https://github.com/nvim-tree/nvim-web-devicons
 
 Usage
@@ -61,6 +63,8 @@ Key                               Command
 ``<ESC>`` in Telescope            Close the Telescope pane
 --------------------------------  -----------------------------------------------------------------
 ``<d>`` in buffers picker         Delete buffer under cursor
+--------------------------------  -----------------------------------------------------------------
+``<C-i>`` in insert mode          Open emoji picker
 --------------------------------  -----------------------------------------------------------------
 ``<Leader>v``                     Load `.vimrc`
 --------------------------------  -----------------------------------------------------------------
