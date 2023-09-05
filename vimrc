@@ -32,6 +32,7 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'stevearc/dressing.nvim'
 Plug 'ziontee113/icon-picker.nvim'
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
@@ -46,11 +47,29 @@ lua << EOF
     -- set termguicolors to enable highlight groups
     vim.opt.termguicolors = true
 
-    -- empty setup using defaults
-    require("nvim-tree").setup()
-
-    -- OR setup with some options
     require("nvim-tree").setup({
+        on_attach = function (bufnr)
+            local api = require "nvim-tree.api"
+
+            local function opts(desc)
+              return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+            end
+
+            -- default mappings
+            api.config.mappings.default_on_attach(bufnr)
+            local function clear_and_copy()
+                api.fs.clear_clipboard()
+                api.fs.copy.node()
+            end
+
+            local function clear_and_cut()
+                api.fs.clear_clipboard()
+                api.fs.cut()
+            end
+
+            vim.keymap.set('n', 'c', clear_and_copy, opts('Copy'))
+            vim.keymap.set('n', 'x', clear_and_cut, opts('Cut'))
+        end,
         sort_by = "case_sensitive",
         view = {
             width = 30,
@@ -147,6 +166,7 @@ lua << EOF
         "dockerls",
         "cssls",
         "bashls",
+        "marksman",
     }
 
     for _, lspName in pairs(lspList) do
@@ -198,7 +218,8 @@ lua << EOF
     require'nvim-treesitter.configs'.setup {
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript",
-            "java", "go", "python", "groovy", "rst", "bash", "dockerfile"},
+            "java", "go", "python", "groovy", "rst", "bash", "dockerfile",
+            "markdown", "markdown_inline"},
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,
@@ -263,6 +284,9 @@ lua << EOF
 
     require("icon-picker").setup({ disable_legacy_commands = true })
     vim.keymap.set("i", "<C-e>", "<cmd>IconPickerInsert emoji<cr>", { noremap = true, silent = true })
+
+    vim.opt.spelllang = 'en_us'
+    vim.opt.spell = true
 EOF
 
 " ==================================================
@@ -277,7 +301,7 @@ set background=light
 let mapleader=","       " change the leader to be a comma vs slash
 set wrap
 set textwidth=80        " Try this out to see how textwidth helps
-set ch=2                " Make command line two lines high
+set ch=1                " Make command line two lines high
 set ls=2                " allways show status line
 set scrolloff=3         " keep 3 lines when scrolling
 set cursorline          " have a line indicate the cursor location
@@ -300,7 +324,7 @@ set matchpairs+=<:>     " show matching <> (html mainly) as well
 set showmatch
 set matchtime=3
 set sm                  " show matching braces, somewhat annoying...
-set mouse=a
+set mouse=
 set history=500         " larger history
 
 
@@ -309,6 +333,7 @@ set statusline+=%w%h%m%r                 " Options
 set statusline+=\ [%{&ff}/%Y]            " filetype
 set statusline+=\ [%{getcwd()}]          " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+set laststatus=3
 
 " Columns and lines
 set colorcolumn=80
