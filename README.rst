@@ -11,7 +11,7 @@ Main Features
 * Uses telescope.nvim_ with some simple configuration options
 * vim-airline_
 * NvimTree_ including icons via nvim-web-devicons_ (requires a patched NerdFont_)
-* Enchanced syntax highlighting using Treesitter_
+* Enhanced syntax highlighting using Treesitter_
 * Emoji picker using icon-picker.nvim_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
 
@@ -30,16 +30,20 @@ Main Features
 Usage
 ============
 
-The following commands will clone the repo, symlink `~/.vimrc` and update the
-bundles::
+Install ``vim-plug`` following `their instructions`_.
 
-    git clone https://github.com/Tudmotu/dotvim.git ~/.vim
-    ln -s ~/.vim/vimrc ~/.vimrc
-    cd ~/.vim
+.. _their instructions: https://github.com/junegunn/vim-plug#installation
+
+Install ``nodejs`` and a C compiler of your choice (``gcc``, ``clang``, etc).
+
+Clone the repo & symlink the config file::
+
+    $ git clone https://github.com/Tudmotu/dotvim.git ~/.vim
+    $ ln -s ~/.vim/vimrc ~/.config/nvim/init.vim
 
 To add or override settings, place them in ``~/.vim/vimrc.local``.
 
-To install plugins using Plug::
+After opening ``nvim`` for the first time, install plugins using Plug::
 
     :PlugInstall
 
