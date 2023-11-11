@@ -161,6 +161,7 @@ lua << EOF
     lspList = {
         "tsserver",
         "solidity_ls_nomicfoundation",
+        "rust_analyzer",
         "pyright",
         "html",
         "dockerls",
