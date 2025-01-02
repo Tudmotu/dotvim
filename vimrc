@@ -159,7 +159,7 @@ lua << EOF
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
     lspList = {
-        "tsserver",
+        "ts_ls",
         "solidity_ls_nomicfoundation",
         "rust_analyzer",
         "pyright",
