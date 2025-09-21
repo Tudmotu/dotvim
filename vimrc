@@ -12,7 +12,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'numToStr/Comment.nvim'
-Plug 'bling/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'kylechui/nvim-surround'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -33,6 +35,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'stevearc/dressing.nvim'
 Plug 'ziontee113/icon-picker.nvim'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'folke/trouble.nvim'
 
 call plug#end()
 
@@ -159,6 +162,7 @@ lua << EOF
     -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 
     lspList = {
+        "tailwindcss",
         "ts_ls",
         "solidity_ls_nomicfoundation",
         "rust_analyzer",
@@ -288,6 +292,20 @@ lua << EOF
 
     vim.opt.spelllang = 'en_us'
     vim.opt.spell = true
+
+    require('lualine').setup {
+        sections = {
+            lualine_a = {'mode'},
+            lualine_b = {'branch', 'diff'},
+            lualine_c = { { 'filename', path = 1 } },
+            lualine_x = {'diagnostics', 'filetype',},
+            lualine_y = {'progress'},
+            lualine_z = {'location'}
+        }
+    }
+
+    require('trouble').setup()
+    vim.keymap.set("n", "<leader>d", "<cmd>Trouble diagnostics<cr>", { noremap = true, silent = true })
 EOF
 
 " ==================================================
@@ -505,6 +523,7 @@ nmap <HOME> ^
 " vim-airline
 " ==================================================
 
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols = 'unicode'
+" let g:airline_powerline_fonts = 1
+" let g:Powerline_symbols = 'unicode'
+" let g:airline_skip_empty_sections = 1
 " let g:airline#extensions#tabline#enabled = 1
