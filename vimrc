@@ -13,14 +13,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'numToStr/Comment.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-" Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'kylechui/nvim-surround'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
@@ -36,10 +33,17 @@ Plug 'stevearc/dressing.nvim'
 Plug 'ziontee113/icon-picker.nvim'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'folke/trouble.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+Plug 'olimorris/codecompanion.nvim'
 
 call plug#end()
 
 lua << EOF
+    for key, value in pairs(require('env')) do
+        vim.env[key] = value
+    end
+
     vim.g.mapleader = ','
     vim.opt.fillchars='eob: '
 
@@ -49,6 +53,22 @@ lua << EOF
 
     -- set termguicolors to enable highlight groups
     vim.opt.termguicolors = true
+
+    require("codecompanion").setup({
+        interactions = {
+            chat = {
+                adapter = "anthropic",
+                model = "claude-sonnet-4-20250514"
+            },
+        },
+        opts = {
+            log_level = "DEBUG",
+        },
+    })
+
+    require('render-markdown').setup({
+        file_types = { 'markdown', 'codecompanion' },
+    })
 
     require("nvim-tree").setup({
         on_attach = function (bufnr)
@@ -225,7 +245,7 @@ lua << EOF
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript",
             "java", "go", "python", "groovy", "rst", "bash", "dockerfile",
-            "markdown", "markdown_inline"},
+            "markdown", "markdown_inline", "html", "yaml"},
 
         -- Install parsers synchronously (only applied to `ensure_installed`)
         sync_install = false,

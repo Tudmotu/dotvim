@@ -43,6 +43,17 @@ Clone the repo & symlink the config file::
 
 To add or override settings, place them in ``~/.vim/vimrc.local``.
 
+For CodeCompanion integration, add a lua module in `lua/env.lua` containing the
+relevant API key:
+
+```lua
+local env = {
+    ANTHROPIC_API_KEY = '...'
+}
+
+return env
+```
+
 After opening ``nvim`` for the first time, install plugins using Plug::
 
     :PlugInstall

@@ -7,3 +7,4 @@ tmp/*
 .JavaImp/*
 bundle/*
 plugged
+lua/env.lua
