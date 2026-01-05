@@ -175,7 +175,8 @@ lua << EOF
     }
 
     for _, lspName in pairs(lspList) do
-        require('lspconfig')[lspName].setup { capabilities = capabilities }
+        vim.lsp.config(lspName, { capabilities = capabilities })
+        vim.lsp.enable({lspName})
     end
 
     require('mason-lspconfig').setup({
