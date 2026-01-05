@@ -5,7 +5,7 @@ My neovim setup
 Main Features
 ============
 
-* Plugin manager is vim-plug_
+* Plugin manager is lazy.nvim_
 * Colorscheme is Solarized Light via nvim-solarized-lua_
 * Fully configured lspconfig using mason.vim_ and mason-lspconfig.nvim_
 * Uses telescope.nvim_ with some simple configuration options
@@ -14,9 +14,10 @@ Main Features
 * Enhanced syntax highlighting using Treesitter_
 * Emoji picker using icon-picker.nvim_
 * Remap ``<Leader>`` to ``,`` and ``jj`` to ``<ESC>``
+* CodeCompanion_ integration
 
 .. _nvim-solarized-lua: https://github.com/ishan9299/nvim-solarized-lua
-.. _vim-plug: https://github.com/junegunn/vim-plug
+.. _lazy.nvim: https://github.com/folke/lazy.nvim
 .. _mason.vim: https://github.com/williamboman/mason.nvim
 .. _mason-lspconfig.nvim: https://github.com/williamboman/mason-lspconfig.nvim
 .. _telescope.nvim: https://github.com/nvim-telescope/telescope.nvim
@@ -26,37 +27,29 @@ Main Features
 .. _Treesitter: https://github.com/nvim-treesitter/nvim-treesitter
 .. _icon-picker.nvim: https://github.com/ziontee113/icon-picker.nvim
 .. _nvim-web-devicons: https://github.com/nvim-tree/nvim-web-devicons
+.. _CodeCompanion: https://github.com/olimorris/codecompanion.nvim
 
 Usage
 ============
-
-Install ``vim-plug`` following `their instructions`_.
-
-.. _their instructions: https://github.com/junegunn/vim-plug#installation
 
 Install ``nodejs`` and a C compiler of your choice (``gcc``, ``clang``, etc).
 
 Clone the repo & symlink the config file::
 
     $ git clone https://github.com/Tudmotu/dotvim.git ~/.vim
-    $ ln -s ~/.vim/vimrc ~/.config/nvim/init.vim
+    $ ln -s ~/.vim/init.lua ~/.config/nvim/init.lua
+    $ ln -s ~/.vim/lua ~/.config/lua
 
-To add or override settings, place them in ``~/.vim/vimrc.local``.
-
-For CodeCompanion integration, add a lua module in `lua/env.lua` containing the
+For CodeCompanion integration, add a lua module in ``lua/env.lua`` containing the
 relevant API key:
 
-```lua
-local env = {
-    ANTHROPIC_API_KEY = '...'
-}
+.. code:: lua
 
-return env
-```
+    local env = {
+        ANTHROPIC_API_KEY = '...'
+    }
 
-After opening ``nvim`` for the first time, install plugins using Plug::
-
-    :PlugInstall
+    return env
 
 
 Shortcuts and re-Mappings
