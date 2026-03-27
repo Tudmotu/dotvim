@@ -38,7 +38,7 @@ Clone the repo & symlink the config file::
 
     $ git clone https://github.com/Tudmotu/dotvim.git ~/.vim
     $ ln -s ~/.vim/init.lua ~/.config/nvim/init.lua
-    $ ln -s ~/.vim/lua ~/.config/lua
+    $ ln -s ~/.vim/lua ~/.config/nvim/lua
 
 For CodeCompanion integration, add a lua module in ``lua/env.lua`` containing the
 relevant API key:
